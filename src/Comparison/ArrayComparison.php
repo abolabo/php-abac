@@ -23,6 +23,29 @@ class ArrayComparison extends AbstractComparison
     {
         return !$this->intersect($array1, $array2);
     }
+    /**
+     * Check is array2 have any values that not presents in array1
+     * @param array $array1
+     * @param array $array2
+     *
+     * @return bool
+     */
+    public function containsDiffs(array $array1, array $array2): bool
+    {
+        return count(array_diff($array2, $array1)) ? true : false;
+    }
+
+    /**
+     * Check is array2 have all values that presents in array1
+     * @param array $array1
+     * @param array $array2
+     *
+     * @return bool
+     */
+    public function NotContainsDiffs(array $array1, array $array2): bool
+    {
+        return !count(array_diff($array2, $array1)) ? true : false;
+    }
 
     public function contains(array $policyRuleAttributes, array $attributes, array $extraData = []): bool
     {
